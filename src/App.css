@@ -248,7 +248,6 @@ button:active {
   animation: shimmer 4s linear infinite;
   font-weight: 600;
 }
-
 /* Smooth moving gradient */
 @keyframes shimmer {
   0% {
