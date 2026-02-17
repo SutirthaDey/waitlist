@@ -231,3 +231,30 @@ button:active {
   font-size: 16px;
   text-align: center;
 }
+
+.subtext {
+  font-size: 16px;
+  margin-bottom: 35px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Gradient highlight */
+.highlight {
+  background: linear-gradient(90deg, #6c63ff, #9c6bff, #00e5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+  font-weight: 600;
+}
+
+/* Smooth moving gradient */
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}

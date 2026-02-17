@@ -66,7 +66,7 @@ function App() {
       });
     } else {
       setToast({
-        message: "You're on the waitlist 🎉",
+        message: "You're added on the waitlist 🎉 We'll get back to you soon.",
         type: "alert",
       });
       setSuccess(true);
@@ -90,7 +90,10 @@ function App() {
       <div className="right">
         <div className="form-box">
           <h1>Join Our Early Access 🚀</h1>
-          <p>Create stunning AI videos in seconds.</p>
+          <p className="subtext">
+            Create stunning <span className="highlight">AI videos</span> in
+            seconds
+          </p>
 
           {success ? (
             <h3 className="success">🎉 You're on the waitlist!</h3>
