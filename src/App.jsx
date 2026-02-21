@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { supabase } from "./supabase";
+import logo from "./assets/zorvee.png";
 import "./App.css";
 
 const WAITLIST_ROUTE = "/join-waitlist";
@@ -12,7 +13,7 @@ const getRouteFromPath = (pathname) => {
 
 function App() {
   const [activePage, setActivePage] = useState(() =>
-    getRouteFromPath(window.location.pathname)
+    getRouteFromPath(window.location.pathname),
   );
   const [formData, setFormData] = useState({
     name: "",
@@ -140,7 +141,9 @@ function App() {
   return (
     <div className="app-shell">
       <header className="top-header">
-        <div className="brand">zorvee</div>
+        <div className="brand">
+          <img src={logo} alt="zorvee" className="brand-logo" />
+        </div>
         <nav className="header-nav" aria-label="Main navigation">
           <button
             type="button"
@@ -169,8 +172,8 @@ function App() {
                   index === activeVideoIndex
                     ? "carousel-video is-active"
                     : index === previousVideoIndex
-                    ? "carousel-video is-previous"
-                    : "carousel-video";
+                      ? "carousel-video is-previous"
+                      : "carousel-video";
                 return (
                   <div key={src} className="video-frame">
                     <video
@@ -186,7 +189,9 @@ function App() {
                       className="video-overlay-trigger"
                       onClick={() => setExpandedVideoSrc(src)}
                     >
-                      <span className="video-overlay-label">See Full Video</span>
+                      <span className="video-overlay-label">
+                        See Full Video
+                      </span>
                     </button>
                   </div>
                 );
@@ -199,9 +204,7 @@ function App() {
             <div className="form-box">
               <p className="waitlist-tag">Early Access</p>
               <h1>AI Product Marketing Videos</h1>
-              <p className="subtext">
-                Fast, personalized, and ready to post.
-              </p>
+              <p className="subtext">Fast, personalized, and ready to post.</p>
               <button
                 type="button"
                 className="product-focus-btn"
@@ -249,7 +252,8 @@ function App() {
             <p className="product-tag">Our Product</p>
             <h1>Create personalized product marketing videos with AI.</h1>
             <p>
-              Built for quick ad-style short videos for your product in a few clicks.
+              Built for quick ad-style short videos for your product in a few
+              clicks.
             </p>
             <ol className="product-feature-list">
               <li>
@@ -308,13 +312,17 @@ function App() {
                 </div>
                 <span className="feature-desc">
                   Give a topic for our <span className="ai-accent">AI</span>{" "}
-                  script, or add your own script.
-                  Congratulations, your video is ready.
+                  script, or add your own script. Congratulations, your video is
+                  ready.
                 </span>
               </li>
             </ol>
             <div className="product-actions">
-              <button type="button" className="demo-link-btn" onClick={handleOpenDemo}>
+              <button
+                type="button"
+                className="demo-link-btn"
+                onClick={handleOpenDemo}
+              >
                 See Demo Video
               </button>
             </div>
@@ -332,7 +340,10 @@ function App() {
           aria-label="Full video player"
           onClick={() => setExpandedVideoSrc("")}
         >
-          <div className="video-modal-content" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="video-modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
             <button
               type="button"
               className="video-modal-close"

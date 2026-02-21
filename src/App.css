@@ -25,7 +25,12 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at 22% 18%, #251235 0%, #120d1c 38%, #09090f 78%);
+  background: radial-gradient(
+    circle at 22% 18%,
+    #251235 0%,
+    #120d1c 38%,
+    #09090f 78%
+  );
   color: white;
   overflow-x: hidden;
   overflow-y: auto;
@@ -76,12 +81,17 @@ body {
 .brand {
   position: relative;
   z-index: 1;
-  font-size: 30px;
-  font-weight: 800;
-  text-transform: lowercase;
-  letter-spacing: 0.8px;
-  color: #f8f1ff;
-  text-shadow: 0 0 16px rgba(168, 110, 255, 0.52);
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  margin-top: 15px;
+  margin-left: -10px;
+  height: 160px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(168, 110, 255, 0.42));
 }
 
 .header-nav {
@@ -191,8 +201,13 @@ body {
   width: 100%;
   border-radius: 28px;
   object-fit: cover;
-  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.62), 0 0 24px rgba(113, 82, 255, 0.18);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+  box-shadow:
+    0 22px 60px rgba(0, 0, 0, 0.62),
+    0 0 24px rgba(113, 82, 255, 0.18);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    filter 0.4s ease;
   transform-origin: center top;
   filter: saturate(0.96) brightness(0.9);
   transform: scale(0.86);
@@ -201,7 +216,9 @@ body {
 .carousel-video.is-active {
   transform: scale(1);
   filter: saturate(1.05) brightness(1);
-  box-shadow: 0 25px 66px rgba(0, 0, 0, 0.72), 0 0 34px rgba(141, 103, 255, 0.3);
+  box-shadow:
+    0 25px 66px rgba(0, 0, 0, 0.72),
+    0 0 34px rgba(141, 103, 255, 0.3);
 }
 
 .carousel-video.is-previous {
@@ -211,7 +228,9 @@ body {
 
 .carousel-video:hover {
   transform: scale(1.035) translateY(-4px);
-  box-shadow: 0 26px 66px rgba(0, 0, 0, 0.7), 0 0 34px rgba(141, 103, 255, 0.34);
+  box-shadow:
+    0 26px 66px rgba(0, 0, 0, 0.7),
+    0 0 34px rgba(141, 103, 255, 0.34);
   filter: saturate(1.08);
 }
 
@@ -242,9 +261,13 @@ body {
     rgba(142, 87, 230, 0.92),
     rgba(79, 38, 146, 0.92)
   );
-  box-shadow: 0 10px 26px rgba(29, 14, 53, 0.58), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  box-shadow:
+    0 10px 26px rgba(29, 14, 53, 0.58),
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset;
   backdrop-filter: blur(8px);
-  transition: all 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    all 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .video-frame::after {
@@ -272,7 +295,9 @@ body {
 .video-frame:hover .video-overlay-label {
   opacity: 1;
   transform: translateY(0);
-  box-shadow: 0 14px 30px rgba(29, 14, 53, 0.66), 0 0 0 1px rgba(255, 255, 255, 0.14) inset;
+  box-shadow:
+    0 14px 30px rgba(29, 14, 53, 0.66),
+    0 0 0 1px rgba(255, 255, 255, 0.14) inset;
 }
 
 .video-modal {
@@ -521,7 +546,9 @@ form button:active {
     rgba(255, 255, 255, 0.02)
   );
   border: 1px solid rgba(218, 193, 255, 0.25);
-  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.52), 0 0 28px rgba(93, 47, 163, 0.18);
+  box-shadow:
+    0 22px 56px rgba(0, 0, 0, 0.52),
+    0 0 28px rgba(93, 47, 163, 0.18);
   text-align: center;
 }
 
