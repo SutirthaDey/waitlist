@@ -29,13 +29,14 @@ function App() {
   });
   const [activeVideoIndex, setActiveVideoIndex] = useState(0);
   const [previousVideoIndex, setPreviousVideoIndex] = useState(-1);
+  const [expandedVideoSrc, setExpandedVideoSrc] = useState("");
 
   const carouselRef = useRef(null);
   const videoSources = ["/video1.mp4", "/video2.mp4", "/video3.mp4"];
 
   // Auto scroll runs only on waitlist and keeps active/previous states in sync.
   useEffect(() => {
-    if (activePage !== "waitlist") return;
+    if (activePage !== "waitlist" || expandedVideoSrc) return;
 
     const container = carouselRef.current;
     if (!container) return;
@@ -60,7 +61,7 @@ function App() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [activePage]);
+  }, [activePage, expandedVideoSrc]);
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -84,6 +85,17 @@ function App() {
       return () => clearTimeout(timer);
     }
   }, [toast]);
+
+  useEffect(() => {
+    if (!expandedVideoSrc) return;
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setExpandedVideoSrc("");
+      }
+    };
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [expandedVideoSrc]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -118,6 +130,11 @@ function App() {
     }
 
     setLoading(false);
+  };
+
+  const handleOpenDemo = () => {
+    handleNavigate("waitlist");
+    setExpandedVideoSrc(videoSources[0]);
   };
 
   return (
@@ -155,15 +172,23 @@ function App() {
                     ? "carousel-video is-previous"
                     : "carousel-video";
                 return (
-                  <video
-                    key={src}
-                    className={videoClassName}
-                    src={src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                  />
+                  <div key={src} className="video-frame">
+                    <video
+                      className={videoClassName}
+                      src={src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                    <button
+                      type="button"
+                      className="video-overlay-trigger"
+                      onClick={() => setExpandedVideoSrc(src)}
+                    >
+                      <span className="video-overlay-label">See Full Video</span>
+                    </button>
+                  </div>
                 );
               })}
             </div>
@@ -172,10 +197,20 @@ function App() {
           {/* RIGHT SIDE */}
           <div className="right">
             <div className="form-box">
-              <h1>Join Our Early Access 🚀</h1>
+              <p className="waitlist-tag">Early Access</p>
+              <h1>AI Product Marketing Videos</h1>
               <p className="subtext">
-                Create stunning <span className="highlight">AI videos</span> in
-                seconds
+                Fast, personalized, and ready to post.
+              </p>
+              <button
+                type="button"
+                className="product-focus-btn"
+                onClick={() => handleNavigate("product")}
+              >
+                Explore Our Product
+              </button>
+              <p className="waitlist-note">
+                See product features first, then reserve your spot.
               </p>
 
               {success ? (
@@ -212,20 +247,109 @@ function App() {
         <main className="product-page">
           <section className="product-card">
             <p className="product-tag">Our Product</p>
-            <h1>Build premium AI videos with zero editing complexity.</h1>
+            <h1>Create personalized product marketing videos with AI.</h1>
             <p>
-              zorvee helps you generate, style, and publish studio-like videos
-              in minutes with a dark-modern workflow built for creators and
-              teams.
+              Built for quick ad-style short videos for your product in a few clicks.
             </p>
-            <button type="button" onClick={() => handleNavigate("waitlist")}>
-              Join Waitlist
-            </button>
+            <ol className="product-feature-list">
+              <li>
+                <div className="feature-head">
+                  <span className="feature-number">1</span>
+                  <span className="feature-tag">
+                    <span className="feature-icon" aria-hidden="true">
+                      👤
+                    </span>
+                    Persona
+                  </span>
+                </div>
+                <span className="feature-desc">
+                  Pick a ready persona or upload your images. We generate an
+                  equivalent <span className="ai-accent">AI</span> persona.
+                </span>
+              </li>
+              <li>
+                <div className="feature-head">
+                  <span className="feature-number">2</span>
+                  <span className="feature-tag">
+                    <span className="feature-icon" aria-hidden="true">
+                      🎙️
+                    </span>
+                    Voice
+                  </span>
+                </div>
+                <span className="feature-desc">
+                  Use a preset voice or your own sample. We generate an
+                  equivalent <span className="ai-accent">AI</span> voice.
+                </span>
+              </li>
+              <li>
+                <div className="feature-head">
+                  <span className="feature-number">3</span>
+                  <span className="feature-tag">
+                    <span className="feature-icon" aria-hidden="true">
+                      🌐
+                    </span>
+                    Language
+                  </span>
+                </div>
+                <span className="feature-desc">
+                  Choose any language to localize your marketing video.
+                </span>
+              </li>
+              <li>
+                <div className="feature-head">
+                  <span className="feature-number">4</span>
+                  <span className="feature-tag">
+                    <span className="feature-icon" aria-hidden="true">
+                      📝
+                    </span>
+                    Script + Output
+                  </span>
+                </div>
+                <span className="feature-desc">
+                  Give a topic for our <span className="ai-accent">AI</span>{" "}
+                  script, or add your own script.
+                  Congratulations, your video is ready.
+                </span>
+              </li>
+            </ol>
+            <div className="product-actions">
+              <button type="button" className="demo-link-btn" onClick={handleOpenDemo}>
+                See Demo Video
+              </button>
+            </div>
           </section>
         </main>
       )}
       {toast.message && (
         <div className={`toast ${toast.type}`}>{toast.message}</div>
+      )}
+      {expandedVideoSrc && (
+        <div
+          className="video-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Full video player"
+          onClick={() => setExpandedVideoSrc("")}
+        >
+          <div className="video-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="video-modal-close"
+              onClick={() => setExpandedVideoSrc("")}
+              aria-label="Close video player"
+            >
+              Close
+            </button>
+            <video
+              className="video-modal-player"
+              src={expandedVideoSrc}
+              controls
+              autoPlay
+              playsInline
+            />
+          </div>
+        </div>
       )}
     </div>
   );
