@@ -1215,7 +1215,13 @@ form button:active {
     align-items: stretch;
     justify-content: flex-start;
     gap: 10px;
-    background: rgba(14, 8, 5, 0.97);
+    background-color: #080503;
+    background-image: linear-gradient(
+      165deg,
+      #080503 0%,
+      #140904 46%,
+      #2a1208 100%
+    );
     border: 1px solid rgba(254, 215, 170, 0.24);
     border-right: none;
     border-radius: 16px 0 0 16px;
