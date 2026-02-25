@@ -47,28 +47,31 @@ function WaitlistPage({
 
       <div className="right">
         <div className="form-box">
-          <p className="waitlist-tag">Early Access</p>
-          <h1>AI Product Marketing Videos</h1>
-          <p className="subtext">Fast, personalized, and ready to post.</p>
+          <p className="waitlist-tag">Early Access Program</p>
+          <h1>Create high-converting product videos with AI</h1>
+          <p className="subtext">
+            Launch polished ad creatives in minutes with personas, voice, and
+            multilingual output tailored to your brand.
+          </p>
           <button
             type="button"
             className="product-focus-btn"
             onClick={onNavigateProduct}
           >
-            Explore Our Product
+            Explore Product Features
           </button>
           <p className="waitlist-note">
-            See product features first, then reserve your spot.
+            Review the product flow, then join the waitlist for priority access.
           </p>
 
           {success ? (
-            <h3 className="success">🎉 You're on the waitlist!</h3>
+            <h3 className="success">You are on the waitlist.</h3>
           ) : (
             <form onSubmit={onSubmit}>
               <input
                 type="text"
                 name="name"
-                placeholder="Your Name"
+                placeholder="Full name"
                 required
                 onChange={onInputChange}
               />
@@ -76,13 +79,13 @@ function WaitlistPage({
               <input
                 type="email"
                 name="email"
-                placeholder="Your Email"
+                placeholder="Work email"
                 required
                 onChange={onInputChange}
               />
 
               <button disabled={loading}>
-                {loading ? "Submitting..." : "Reserve My Spot"}
+                {loading ? "Submitting..." : "Join the Waitlist"}
               </button>
             </form>
           )}

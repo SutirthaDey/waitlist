@@ -11,8 +11,8 @@ function ExamplesPage({ categories, onOpenVideo }) {
     return (
       <main className="examples-page">
         <section className="examples-card">
-          <h1>Examples</h1>
-          <p>No examples available right now.</p>
+          <h1>Video Library</h1>
+          <p>Examples are being prepared. Please check back shortly.</p>
         </section>
       </main>
     );
@@ -21,11 +21,8 @@ function ExamplesPage({ categories, onOpenVideo }) {
   return (
     <main className="examples-page">
       <section className="examples-card">
-        <p className="examples-tag">Examples</p>
-        <h1>Explore category-based video examples.</h1>
-        <p className="examples-subtext">
-          Click a category to filter videos. Fragrance is shown first by default.
-        </p>
+        <p className="examples-tag">See Examples</p>
+        <h1>Explore production-style videos by category</h1>
 
         <div className="examples-categories" role="tablist" aria-label="Video categories">
           {categories.map((category) => (

@@ -133,12 +133,14 @@ function App() {
 
     if (error) {
       setToast({
-        message: "Email already on the waitlist. We'll get back to you soon 🚀",
+        message:
+          "This email is already registered. We will notify you as soon as access opens.",
         type: "error",
       });
     } else {
       setToast({
-        message: "You're added on the waitlist 🎉 We'll get back to you soon.",
+        message:
+          "You have been added to the waitlist. We will contact you with next steps.",
         type: "success",
       });
       setSuccess(true);
