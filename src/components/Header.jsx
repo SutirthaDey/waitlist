@@ -33,7 +33,9 @@ function Header({ activePage, onNavigate }) {
   };
 
   return (
-    <header className="top-header">
+    <header
+      className={`top-header ${activePage === PAGES.WAITLIST ? "waitlist-theme" : ""}`}
+    >
       <div className="brand">
         <button
           type="button"
