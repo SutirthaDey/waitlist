@@ -6,16 +6,16 @@
 }
 
 :root {
-  --bg-violet: #7a34d2;
-  --bg-coral: #f07a48;
-  --shell: #f4ecec;
-  --surface: #ffffff;
-  --surface-soft: #f8f2f5;
-  --text-strong: #161218;
-  --text-muted: #5f5761;
-  --accent: #d50b8b;
-  --accent-dark: #a00a69;
-  --accent-light: #f69ad4;
+  --bg-violet: #12161F;
+  --bg-coral: #84CC16;
+  --shell: #12161F;
+  --surface: #12161F;
+  --surface-soft: #12161F;
+  --text-strong: #84CC16;
+  --text-muted: #84CC16;
+  --accent: #84CC16;
+  --accent-dark: #12161F;
+  --accent-light: #84CC16;
 }
 
 html,
@@ -28,7 +28,7 @@ body {
   background: radial-gradient(
     circle at 8% 8%,
     var(--bg-violet),
-    #9c4bc8 28%,
+    #12161F 28%,
     var(--bg-coral) 100%
   );
   color: var(--text-strong);
@@ -94,7 +94,7 @@ body {
 .header-nav button {
   border: 1px solid transparent;
   background: transparent;
-  color: #2b2630;
+  color: #84CC16;
   font-weight: 500;
   font-size: 16px;
   padding: 8px 14px;
@@ -104,12 +104,12 @@ body {
 }
 
 .header-nav button:hover {
-  border-color: rgba(213, 11, 139, 0.25);
-  background: rgba(213, 11, 139, 0.08);
+  border-color: rgba(132, 204, 22, 0.25);
+  background: rgba(132, 204, 22, 0.08);
 }
 
 .header-nav button.active {
-  border-color: rgba(213, 11, 139, 0.3);
+  border-color: rgba(132, 204, 22, 0.3);
   color: #fff;
   background: linear-gradient(95deg, var(--accent), var(--accent-dark));
 }
@@ -127,7 +127,7 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.14);
   background: rgba(255, 255, 255, 0.85);
-  color: #27212e;
+  color: #84CC16;
   cursor: pointer;
   font-size: 18px;
 }
@@ -146,7 +146,7 @@ body {
 .mobile-menu-toggle span {
   display: block;
   height: 2px;
-  background: #231a27;
+  background: #84CC16;
   border-radius: 999px;
 }
 
@@ -176,7 +176,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 12px;
-  color: #7c6675;
+  color: #84CC16;
   margin-bottom: 12px;
 }
 
@@ -188,7 +188,7 @@ body {
 }
 
 .hero-title span {
-  background: linear-gradient(95deg, #7a34d2 0%, #d50b8b 45%, #f07a48 100%);
+  background: linear-gradient(95deg, #84CC16 0%, #12161F 45%, #12161F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -220,25 +220,25 @@ body {
 
 .cta-primary {
   color: #fff;
-  background: linear-gradient(95deg, #7a34d2 0%, #d50b8b 55%, #f07a48 100%);
-  box-shadow: 0 12px 24px rgba(160, 10, 105, 0.25);
+  background: linear-gradient(95deg, #84CC16 0%, #12161F 55%, #12161F 100%);
+  box-shadow: 0 12px 24px rgba(132, 204, 22, 0.25);
 }
 
 .cta-secondary {
-  color: #1f1a22;
+  color: #12161F;
   background: rgba(255, 255, 255, 0.74);
   border-color: rgba(0, 0, 0, 0.16);
 }
 
 .waitlist-note {
-  color: #7f7682;
+  color: #84CC16;
   font-size: 14px;
   margin-bottom: 18px;
 }
 
 .form-box {
   background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(213, 11, 139, 0.2);
+  border: 1px solid rgba(132, 204, 22, 0.2);
   border-radius: 20px;
   padding: 16px;
   backdrop-filter: blur(6px);
@@ -258,13 +258,13 @@ input {
   background: #fff;
   padding: 0 14px;
   font-size: 15px;
-  color: #1d1720;
+  color: #12161F;
 }
 
 input:focus {
   outline: none;
-  border-color: rgba(213, 11, 139, 0.5);
-  box-shadow: 0 0 0 3px rgba(213, 11, 139, 0.14);
+  border-color: rgba(132, 204, 22, 0.5);
+  box-shadow: 0 0 0 3px rgba(132, 204, 22, 0.14);
 }
 
 form button {
@@ -299,7 +299,7 @@ form button {
   border-radius: 999px;
   padding: 10px 14px;
   font-size: 13px;
-  color: #5b4e5a;
+  color: #84CC16;
   box-shadow: 0 8px 22px rgba(33, 20, 32, 0.12);
 }
 
@@ -310,7 +310,7 @@ form button {
   border-radius: 30px;
   overflow: hidden;
   cursor: pointer;
-  background: #0d0b11;
+  background: #12161F;
   box-shadow: 0 26px 46px rgba(43, 19, 38, 0.28);
   position: relative;
 }
@@ -329,7 +329,7 @@ form button {
   padding: 8px 14px;
   font-size: 13px;
   color: #fff;
-  background: rgba(213, 11, 139, 0.88);
+  background: rgba(132, 204, 22, 0.88);
 }
 
 .media-mini {
@@ -374,7 +374,7 @@ form button {
 .chat-card p {
   font-size: 24px;
   line-height: 1.35;
-  color: #1f1721;
+  color: #84CC16;
 }
 
 .product-page,
@@ -386,7 +386,7 @@ form button {
 .examples-card {
   background: rgba(255, 255, 255, 0.9);
   border-radius: 24px;
-  border: 1px solid rgba(213, 11, 139, 0.18);
+  border: 1px solid rgba(132, 204, 22, 0.18);
   box-shadow: 0 20px 44px rgba(41, 21, 39, 0.15);
   padding: 32px;
 }
@@ -396,7 +396,7 @@ form button {
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 0.08em;
-  color: #7b6f79;
+  color: #84CC16;
   margin-bottom: 8px;
 }
 
@@ -427,7 +427,7 @@ form button {
 
 .product-feature-list li {
   background: var(--surface-soft);
-  border: 1px solid rgba(213, 11, 139, 0.2);
+  border: 1px solid rgba(132, 204, 22, 0.2);
   border-radius: 16px;
   padding: 14px;
 }
@@ -446,7 +446,7 @@ form button {
   display: grid;
   place-items: center;
   background: #fff;
-  border: 1px solid rgba(213, 11, 139, 0.28);
+  border: 1px solid rgba(132, 204, 22, 0.28);
   color: var(--accent-dark);
   font-weight: 700;
 }
@@ -486,7 +486,7 @@ form button {
   border: none;
   border-radius: 12px;
   background: linear-gradient(95deg, var(--accent), var(--accent-dark));
-  box-shadow: 0 12px 22px rgba(160, 10, 105, 0.2);
+  box-shadow: 0 12px 22px rgba(132, 204, 22, 0.2);
 }
 
 .demo-link-btn,
@@ -505,10 +505,10 @@ form button {
 
 .examples-categories button {
   background: #fff;
-  border: 1px solid rgba(213, 11, 139, 0.24);
+  border: 1px solid rgba(132, 204, 22, 0.24);
   border-radius: 12px;
   padding: 10px 12px;
-  color: #2a2430;
+  color: #84CC16;
   cursor: pointer;
   text-align: left;
 }
@@ -519,7 +519,7 @@ form button {
 }
 
 .examples-categories button small {
-  color: #8f7888;
+  color: #84CC16;
 }
 
 .examples-grid {
@@ -530,7 +530,7 @@ form button {
 
 .example-video-card {
   background: #fff;
-  border: 1px solid rgba(213, 11, 139, 0.2);
+  border: 1px solid rgba(132, 204, 22, 0.2);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 12px 26px rgba(30, 20, 30, 0.14);
@@ -575,7 +575,7 @@ form button {
 
 .strip-note {
   text-align: center;
-  color: #272128;
+  color: #84CC16;
   font-size: 16px;
   margin-bottom: 14px;
 }
@@ -589,7 +589,7 @@ form button {
 .brand-logos span {
   text-align: center;
   font-weight: 700;
-  color: #252028;
+  color: #84CC16;
   opacity: 0.8;
 }
 
@@ -597,7 +597,7 @@ form button {
   position: fixed;
   top: 24px;
   right: 24px;
-  background: #121018;
+  background: #12161F;
   color: #fff;
   padding: 12px 16px;
   border-radius: 12px;
@@ -610,7 +610,7 @@ form button {
 }
 
 .toast.error {
-  background: #8e1d3f;
+  background: #12161F;
 }
 
 .video-modal {
@@ -704,7 +704,7 @@ form button {
     width: min(320px, 80vw);
     height: 100vh;
     background: #fff;
-    border-left: 1px solid rgba(213, 11, 139, 0.2);
+    border-left: 1px solid rgba(132, 204, 22, 0.2);
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
@@ -721,16 +721,16 @@ form button {
   .mobile-menu-close {
     display: block;
     align-self: flex-end;
-    border: 1px solid rgba(213, 11, 139, 0.25);
-    background: rgba(213, 11, 139, 0.08);
+    border: 1px solid rgba(132, 204, 22, 0.25);
+    background: rgba(132, 204, 22, 0.08);
     border-radius: 10px;
     padding: 8px 10px;
     cursor: pointer;
   }
 
   .header-nav button {
-    color: #2b2630;
-    border-color: rgba(213, 11, 139, 0.22);
+    color: #84CC16;
+    border-color: rgba(132, 204, 22, 0.22);
     background: #fff;
     text-align: center;
   }
@@ -787,4 +787,85 @@ form button {
   .brand-logos {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* Restored balance: dark outer theme + light middle content */
+:root {
+  --bg-violet: #12161F;
+  --bg-coral: #84CC16;
+  --shell: #F7FFD9;
+  --surface: #FFFFFF;
+  --surface-soft: #ECF7B2;
+  --text-strong: #12161F;
+  --text-muted: #2A2F3A;
+  --accent: #84CC16;
+  --accent-dark: #2A2F3A;
+  --accent-light: #E6FF94;
+}
+
+body {
+  background: radial-gradient(
+    circle at 8% 8%,
+    var(--bg-violet),
+    #2A2F3A 42%,
+    var(--bg-coral) 100%
+  );
+  color: var(--text-strong);
+}
+
+.site-frame {
+  background: var(--shell);
+}
+
+.header-nav button,
+.mobile-menu-toggle span,
+.waitlist-tag,
+.waitlist-note,
+.media-pill,
+.chat-card p,
+.product-tag,
+.examples-tag,
+.examples-categories button,
+.examples-categories button small,
+.strip-note,
+.brand-logos span {
+  color: var(--text-strong);
+}
+
+.subtext,
+.product-card p,
+.examples-subtext,
+.examples-category-description,
+.feature-desc,
+.example-video-content p {
+  color: var(--text-muted);
+}
+
+.form-box,
+.product-card,
+.examples-card,
+.example-video-card,
+.examples-categories button {
+  background: #ffffff;
+}
+
+.product-feature-list li {
+  background: var(--surface-soft);
+}
+
+.hero-title span {
+  background: linear-gradient(95deg, #84CC16 0%, #2A2F3A 45%, #12161F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cta-primary,
+.header-nav button.active,
+.demo-link-btn,
+.product-card button,
+.example-video-content button,
+.examples-categories button.active,
+form button,
+.feature-tag {
+  background: linear-gradient(95deg, var(--accent), var(--accent-dark));
 }
