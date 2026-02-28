@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Toast from "./components/Toast";
@@ -35,29 +35,16 @@ function App() {
   const [previousVideoIndex, setPreviousVideoIndex] = useState(-1);
   const [expandedVideoSrc, setExpandedVideoSrc] = useState("");
 
-  const carouselRef = useRef(null);
-
   useEffect(() => {
     if (activePage !== PAGES.WAITLIST || expandedVideoSrc) return;
-
-    const container = carouselRef.current;
-    if (!container) return;
-
-    const videos = container.querySelectorAll(".carousel-video");
-    if (!videos.length) return;
-
+    if (!VIDEO_SOURCES.length) return;
     setActiveVideoIndex(0);
     setPreviousVideoIndex(-1);
-    videos[0].scrollIntoView({ behavior: "auto", block: "start" });
 
     const interval = setInterval(() => {
       setActiveVideoIndex((current) => {
-        const next = (current + 1) % videos.length;
+        const next = (current + 1) % VIDEO_SOURCES.length;
         setPreviousVideoIndex(current);
-        videos[next].scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
         return next;
       });
     }, 5000);
@@ -160,29 +147,29 @@ function App() {
 
   return (
     <div className="app-shell">
-      <Header activePage={activePage} onNavigate={handleNavigate} />
+      <div className="site-frame">
+        <Header activePage={activePage} onNavigate={handleNavigate} />
 
-      {activePage === PAGES.WAITLIST ? (
-        <WaitlistPage
-          carouselRef={carouselRef}
-          videoSources={VIDEO_SOURCES}
-          activeVideoIndex={activeVideoIndex}
-          previousVideoIndex={previousVideoIndex}
-          onOpenVideo={handleOpenVideo}
-          success={success}
-          loading={loading}
-          onNavigateProduct={() => handleNavigate(PAGES.PRODUCT)}
-          onSubmit={handleSubmit}
-          onInputChange={handleInputChange}
-        />
-      ) : activePage === PAGES.EXAMPLES ? (
-        <ExamplesPage
-          categories={EXAMPLE_VIDEO_CATEGORIES}
-          onOpenVideo={handleOpenVideo}
-        />
-      ) : (
-        <ProductPage onOpenDemo={handleOpenDemo} />
-      )}
+        {activePage === PAGES.WAITLIST ? (
+          <WaitlistPage
+            videoSources={VIDEO_SOURCES}
+            activeVideoIndex={activeVideoIndex}
+            onOpenVideo={handleOpenVideo}
+            success={success}
+            loading={loading}
+            onNavigateProduct={() => handleNavigate(PAGES.PRODUCT)}
+            onSubmit={handleSubmit}
+            onInputChange={handleInputChange}
+          />
+        ) : activePage === PAGES.EXAMPLES ? (
+          <ExamplesPage
+            categories={EXAMPLE_VIDEO_CATEGORIES}
+            onOpenVideo={handleOpenVideo}
+          />
+        ) : (
+          <ProductPage onOpenDemo={handleOpenDemo} />
+        )}
+      </div>
 
       <Toast message={toast.message} type={toast.type} />
       <VideoModal src={expandedVideoSrc} onClose={() => setExpandedVideoSrc("")} />

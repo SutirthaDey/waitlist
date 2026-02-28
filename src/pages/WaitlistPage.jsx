@@ -1,8 +1,6 @@
 function WaitlistPage({
-  carouselRef,
   videoSources,
   activeVideoIndex,
-  previousVideoIndex,
   onOpenVideo,
   success,
   loading,
@@ -10,60 +8,36 @@ function WaitlistPage({
   onSubmit,
   onInputChange,
 }) {
+  const primaryVideo = videoSources[activeVideoIndex] ?? videoSources[0];
+  const sideVideoTop =
+    videoSources[(activeVideoIndex + 1) % videoSources.length] ?? videoSources[0];
+  const sideVideoBottom =
+    videoSources[(activeVideoIndex + 2) % videoSources.length] ?? videoSources[0];
+
   return (
-    <div className="container">
-      <div className="left">
-        <div className="video-carousel" ref={carouselRef}>
-          {videoSources.map((src, index) => {
-            const videoClassName =
-              index === activeVideoIndex
-                ? "carousel-video is-active"
-                : index === previousVideoIndex
-                  ? "carousel-video is-previous"
-                  : "carousel-video";
-
-            return (
-              <div key={src} className="video-frame">
-                <video
-                  className={videoClassName}
-                  src={src}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-                <button
-                  type="button"
-                  className="video-overlay-trigger"
-                  onClick={() => onOpenVideo(src)}
-                >
-                  <span className="video-overlay-label">▶ Play</span>
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="right">
-        <div className="form-box">
-          <p className="waitlist-tag">Early Access Program</p>
-          <h1>Create high-converting product videos with AI</h1>
-          <p className="subtext">
-            Launch polished ad creatives in minutes with personas, voice, and
-            multilingual output tailored to your brand.
-          </p>
-          <button
-            type="button"
-            className="product-focus-btn"
-            onClick={onNavigateProduct}
-          >
+    <main className="landing-panel">
+      <section className="hero-left">
+        <p className="waitlist-tag">Early Access Program</p>
+        <h1 className="hero-title">
+          <span>Create high-converting</span>
+          <br />
+          product videos
+          <br />
+          with AI
+        </h1>
+        <p className="subtext">
+          Launch polished ad creatives in minutes with personas, voice, and
+          multilingual output tailored to your brand.
+        </p>
+        <div className="hero-cta-row">
+          <button type="button" className="cta-primary" onClick={onNavigateProduct}>
             Explore Product Features
           </button>
-          <p className="waitlist-note">
-            Review the product flow, then join the waitlist for priority access.
-          </p>
-
+        </div>
+        <p className="waitlist-note">
+          Review the product flow, then join the waitlist for priority access.
+        </p>
+        <div className="form-box">
           {success ? (
             <h3 className="success">You are on the waitlist.</h3>
           ) : (
@@ -90,8 +64,25 @@ function WaitlistPage({
             </form>
           )}
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="hero-right">
+        <button type="button" className="media-main" onClick={() => onOpenVideo(primaryVideo)}>
+          <video className="carousel-video is-active" src={primaryVideo} autoPlay loop muted playsInline />
+          <span className="video-overlay-label">▶ Play</span>
+        </button>
+        <button type="button" className="media-mini media-mini-top" onClick={() => onOpenVideo(sideVideoTop)}>
+          <video src={sideVideoTop} autoPlay loop muted playsInline />
+        </button>
+        <button
+          type="button"
+          className="media-mini media-mini-bottom"
+          onClick={() => onOpenVideo(sideVideoBottom)}
+        >
+          <video src={sideVideoBottom} autoPlay loop muted playsInline />
+        </button>
+      </section>
+    </main>
   );
 }
 

@@ -46,18 +46,7 @@ function Header({ activePage, onNavigate }) {
           <img src={logo} alt="zorvee" className="brand-logo" />
         </button>
       </div>
-      <button
-        type="button"
-        className="mobile-menu-toggle"
-        aria-label="Toggle navigation menu"
-        aria-expanded={isMobileMenuOpen}
-        aria-controls="main-navigation"
-        onClick={() => setIsMobileMenuOpen((current) => !current)}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
+
       <nav
         id="main-navigation"
         className={`header-nav ${isMobileMenuOpen ? "mobile-open" : ""}`}
@@ -93,6 +82,20 @@ function Header({ activePage, onNavigate }) {
           Join Waitlist
         </button>
       </nav>
+      <div className="header-actions">
+        <button
+          type="button"
+          className="mobile-menu-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="main-navigation"
+          onClick={() => setIsMobileMenuOpen((current) => !current)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </div>
       {isMobileMenuOpen ? (
         <button
           type="button"
