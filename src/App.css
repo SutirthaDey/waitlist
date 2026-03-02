@@ -44,7 +44,7 @@ input {
 }
 
 .site-frame {
-  width: min(980px, 100%);
+  width: min(1080px, 100%);
   min-height: calc(100vh - 48px);
   border-radius: 28px;
   background: var(--shell);
@@ -370,6 +370,10 @@ form button {
   opacity: 1;
 }
 
+.example-video-trigger .video-overlay-label {
+  opacity: 1;
+}
+
 .video-tile:focus-visible,
 .example-video-trigger:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.9);
@@ -411,7 +415,12 @@ form button {
   right: 0;
   bottom: -10px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(63, 111, 34, 0.35), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(63, 111, 34, 0.35),
+    transparent
+  );
 }
 
 .product-sections {
@@ -443,7 +452,11 @@ form button {
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: linear-gradient(180deg, rgba(201, 238, 140, 0.55), rgba(141, 211, 48, 0.22));
+  background: linear-gradient(
+    180deg,
+    rgba(201, 238, 140, 0.55),
+    rgba(141, 211, 48, 0.22)
+  );
   border: 1px solid rgba(141, 211, 48, 0.55);
   color: #2f5420;
   font-weight: 700;
@@ -471,7 +484,9 @@ form button {
   font-size: 15px;
   line-height: 1.55;
   color: var(--text-muted);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .pain-points-list li:hover {
@@ -499,7 +514,11 @@ form button {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(120deg, rgba(141, 211, 48, 0.14), transparent 55%);
+  background: linear-gradient(
+    120deg,
+    rgba(141, 211, 48, 0.14),
+    transparent 55%
+  );
   pointer-events: none;
 }
 
@@ -560,7 +579,9 @@ form button {
   box-shadow:
     0 10px 22px rgba(12, 20, 34, 0.12),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
-  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
 }
 
 .example-video-preview-wrap {
@@ -621,7 +642,9 @@ form button {
   border-radius: 16px;
   padding: 14px;
   background: #fff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .product-feature-list li:hover {
@@ -685,7 +708,9 @@ form button {
   background: #fff;
   padding: 14px;
   box-shadow: 0 8px 16px rgba(12, 20, 34, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .capability-card:hover,
@@ -714,7 +739,9 @@ form button {
   border: 1px solid rgba(18, 26, 42, 0.12);
   background: linear-gradient(180deg, #ffffff 0%, #f7fbe8 100%);
   padding: 12px 14px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .faq-item:hover {
@@ -773,7 +800,9 @@ form button {
 
 .demo-link-btn {
   padding: 12px 20px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .demo-link-btn:hover {
