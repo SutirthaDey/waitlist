@@ -11,6 +11,7 @@ function ExamplesPage({ categories, onOpenVideo }) {
     return (
       <main className="examples-page">
         <section className="examples-card">
+          <p className="examples-tag">See Examples</p>
           <h1>Video Library</h1>
           <p>Examples are being prepared. Please check back shortly.</p>
         </section>
@@ -22,7 +23,9 @@ function ExamplesPage({ categories, onOpenVideo }) {
     <main className="examples-page">
       <section className="examples-card">
         <p className="examples-tag">See Examples</p>
-        <h1>Explore production-style videos by category</h1>
+        <h1>
+          <span className="title-accent">Content Library</span> By Category
+        </h1>
 
         <div className="examples-categories" role="tablist" aria-label="Video categories">
           {categories.map((category) => (
@@ -45,7 +48,12 @@ function ExamplesPage({ categories, onOpenVideo }) {
         <div className="examples-grid">
           {activeCategory.videos.map((video) => (
             <article key={video.id} className="example-video-card">
-              <div className="example-video-preview-wrap">
+              <button
+                type="button"
+                className="example-video-trigger"
+                onClick={() => onOpenVideo(video.src)}
+                aria-label={`Play ${video.title}`}
+              >
                 <video
                   className="example-video-preview"
                   src={video.src}
@@ -54,13 +62,13 @@ function ExamplesPage({ categories, onOpenVideo }) {
                   muted
                   playsInline
                 />
-              </div>
+                <span className="video-overlay-label" aria-hidden="true">
+                  ▶
+                </span>
+              </button>
               <div className="example-video-content">
                 <h3>{video.title}</h3>
                 <p>{video.summary}</p>
-                <button type="button" onClick={() => onOpenVideo(video.src)}>
-                  ▶ Play
-                </button>
               </div>
             </article>
           ))}

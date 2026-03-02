@@ -18,21 +18,25 @@ const CATEGORY_DESCRIPTIONS = {
 
 const CATEGORY_VIDEO_FILES = {
   fragrance: ["frag1.mp4", "frag2.mp4"],
-  beauty: ["beauty1.mp4", "beauty2.mp4"],
-  clothing: ["clothing1.mp4"],
-  jewellery: ["jewe1.mp4"],
+  beauty: ["beauty1.mp4", "beauty3.mp4", "beauty4.mp4"],
+  clothing: ["clothing1.mp4", "clothing2.mp4"],
+  jewellery: ["jewe1.mp4", "jewellery3.mp4"],
 };
 
-const CATEGORY_ORDER = ["fragrance", "beauty", "clothing", "jewellery"];
+const CATEGORY_ORDER = ["beauty", "clothing", "jewellery", "fragrance"];
 
 export const EXAMPLE_VIDEO_CATEGORIES = CATEGORY_ORDER.map((categoryId) => {
   const files = CATEGORY_VIDEO_FILES[categoryId] ?? [];
   const categoryLabel = CATEGORY_LABELS[categoryId] ?? categoryId;
   const titleByCategory = {
     fragrance: ["Signature Fragrance Launch", "Evening Scent Collection"],
-    beauty: ["Daily Skincare Ritual", "Clinical Glow Serum Spotlight"],
-    clothing: ["Seasonal Collection Drop"],
-    jewellery: ["Fine Jewellery Gift Edit"],
+    beauty: [
+      "Daily Skincare Ritual",
+      "Clinical Glow Serum Spotlight",
+      "Hydration Recovery Essentials",
+    ],
+    clothing: ["Seasonal Collection Drop", "Urban Layers Lookbook"],
+    jewellery: ["Fine Jewellery Gift Edit", "Bridal Gold Signature Set"],
   };
   const summaryByCategory = {
     fragrance: [
@@ -42,12 +46,15 @@ export const EXAMPLE_VIDEO_CATEGORIES = CATEGORY_ORDER.map((categoryId) => {
     beauty: [
       "Problem-solution narrative focused on ingredients, results, and routine fit.",
       "Trust-building product story designed for high-retention short-form channels.",
+      "Routine-first concept highlighting texture, application, and visible finish.",
     ],
     clothing: [
       "Fast-paced lookbook format featuring fit, fabric movement, and styling context.",
+      "Street-style creative emphasizing layering combinations and versatile wear.",
     ],
     jewellery: [
       "Elegant showcase emphasizing craftsmanship, finish quality, and gifting appeal.",
+      "Ceremony-led storytelling focused on detailing, sparkle, and heirloom value.",
     ],
   };
 

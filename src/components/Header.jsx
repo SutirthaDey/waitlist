@@ -79,7 +79,7 @@ function Header({ activePage, onNavigate }) {
           className={activePage === PAGES.WAITLIST ? "active" : ""}
           onClick={() => handleNavigate(PAGES.WAITLIST)}
         >
-          Join Waitlist
+          Join
         </button>
       </nav>
       <div className="header-actions">

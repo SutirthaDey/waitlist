@@ -8,22 +8,23 @@ function WaitlistPage({
   onSubmit,
   onInputChange,
 }) {
-  const primaryVideo = videoSources[activeVideoIndex] ?? videoSources[0];
-  const sideVideoTop =
-    videoSources[(activeVideoIndex + 1) % videoSources.length] ?? videoSources[0];
-  const sideVideoBottom =
-    videoSources[(activeVideoIndex + 2) % videoSources.length] ?? videoSources[0];
+  const visibleVideos = Array.from({ length: 4 }, (_, index) => {
+    if (!videoSources.length) return "";
+    return videoSources[(activeVideoIndex + index) % videoSources.length];
+  });
 
   return (
     <main className="landing-panel">
-      <section className="hero-left">
-        <p className="waitlist-tag">Early Access Program</p>
+      <section className="hero-center">
+        <p className="waitlist-tag animated-program">Early Access Program</p>
         <h1 className="hero-title">
-          <span>Create high-converting</span>
+          <span className="title-accent">Zorvee</span>
           <br />
-          product videos
+          <span className="title-accent">AI Powered</span> Content
           <br />
-          with AI
+          <span className="title-accent">Generation</span> Engine For Your
+          <br />
+          Brand
         </h1>
         <p className="subtext">
           Launch polished ad creatives in minutes with personas, voice, and
@@ -31,7 +32,7 @@ function WaitlistPage({
         </p>
         <div className="hero-cta-row">
           <button type="button" className="cta-primary" onClick={onNavigateProduct}>
-            Explore Product Features
+            How It Works
           </button>
         </div>
         <p className="waitlist-note">
@@ -53,34 +54,34 @@ function WaitlistPage({
               <input
                 type="email"
                 name="email"
-                placeholder="Work email"
+                placeholder="Email"
                 required
                 onChange={onInputChange}
               />
 
               <button disabled={loading}>
-                {loading ? "Submitting..." : "Join the Waitlist"}
+                {loading ? "Submitting..." : "Get In Touch"}
               </button>
             </form>
           )}
         </div>
       </section>
 
-      <section className="hero-right">
-        <button type="button" className="media-main" onClick={() => onOpenVideo(primaryVideo)}>
-          <video className="carousel-video is-active" src={primaryVideo} autoPlay loop muted playsInline />
-          <span className="video-overlay-label">▶ Play</span>
-        </button>
-        <button type="button" className="media-mini media-mini-top" onClick={() => onOpenVideo(sideVideoTop)}>
-          <video src={sideVideoTop} autoPlay loop muted playsInline />
-        </button>
-        <button
-          type="button"
-          className="media-mini media-mini-bottom"
-          onClick={() => onOpenVideo(sideVideoBottom)}
-        >
-          <video src={sideVideoBottom} autoPlay loop muted playsInline />
-        </button>
+      <section className="video-row" aria-label="Featured videos">
+        {visibleVideos.map((videoSrc, index) => (
+          <button
+            type="button"
+            key={`${videoSrc}-${index}`}
+            className="video-tile"
+            onClick={() => onOpenVideo(videoSrc)}
+            disabled={!videoSrc}
+          >
+            {videoSrc ? <video src={videoSrc} autoPlay loop muted playsInline /> : null}
+            <span className="video-overlay-label" aria-hidden="true">
+              ▶
+            </span>
+          </button>
+        ))}
       </section>
     </main>
   );
