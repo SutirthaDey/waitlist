@@ -35,6 +35,7 @@ body {
     radial-gradient(circle at 10% 15%, #111b33 0%, transparent 44%),
     linear-gradient(180deg, var(--bg-deep), var(--bg-mid));
   color: var(--text-main);
+  overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
@@ -951,7 +952,7 @@ form button {
     position: fixed;
     top: 0;
     right: 0;
-    width: min(320px, 80vw);
+    width: min(320px, 86vw);
     height: 100vh;
     background: var(--surface);
     border-left: 1px solid var(--line);
@@ -1014,6 +1015,7 @@ form button {
 
   .cta-primary {
     font-size: 24px;
+    padding: 12px 22px;
   }
 
   form {
@@ -1040,19 +1042,38 @@ form button {
   .product-block {
     padding: 18px;
   }
+
+  .examples-card,
+  .product-card {
+    padding: 24px;
+  }
 }
 
 @media (max-width: 760px) {
+  .top-header {
+    padding: 14px 14px 10px;
+  }
+
+  .landing-panel,
+  .examples-page,
+  .product-page {
+    padding: 16px 14px 22px;
+  }
+
+  .examples-card,
+  .product-card {
+    padding: 20px 16px;
+    border-radius: 18px;
+  }
+
   .product-block h2 {
     padding: 4px 0 10px;
     white-space: normal;
+    font-size: clamp(18px, 4.8vw, 22px);
   }
 
   .block-kicker {
-    position: static;
-    transform: none;
-    display: inline-flex;
-    margin-bottom: 8px;
+    display: none;
   }
 
   .product-feature-list,
@@ -1064,16 +1085,35 @@ form button {
   .efficiency-grid {
     grid-template-columns: 1fr;
   }
+
+  .examples-categories {
+    gap: 8px;
+  }
+
+  .examples-categories button {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 130px;
+  }
+
+  .example-video-content {
+    padding: 14px;
+  }
+
+  .hero-title,
+  .examples-card h1,
+  .product-card h1 {
+    line-height: 1.04;
+  }
 }
 
 @media (max-width: 620px) {
   .app-shell {
-    padding: 12px;
+    padding: 8px;
   }
 
   .site-frame {
-    min-height: calc(100vh - 24px);
-    border-radius: 20px;
+    min-height: calc(100vh - 16px);
+    border-radius: 16px;
   }
 
   .brand-logo-button {
@@ -1091,5 +1131,58 @@ form button {
 
   .landing-panel {
     gap: 28px;
+  }
+
+  .hero-title {
+    font-size: clamp(30px, 11vw, 42px);
+  }
+
+  .subtext {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .cta-primary,
+  .demo-link-btn {
+    width: 100%;
+    font-size: 20px;
+    padding: 12px 16px;
+  }
+
+  .product-actions {
+    margin-top: 20px;
+  }
+
+  .toast {
+    left: 10px;
+    right: 10px;
+    top: 12px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .top-header {
+    padding: 12px 12px 8px;
+  }
+
+  .landing-panel,
+  .examples-page,
+  .product-page {
+    padding: 14px 12px 18px;
+  }
+
+  .examples-card,
+  .product-card {
+    padding: 16px 12px;
+  }
+
+  .examples-categories button {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .product-block {
+    padding: 14px;
   }
 }
