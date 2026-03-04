@@ -1,3 +1,5 @@
+import { CAPABILITIES, FAQS, OUTCOMES, USE_CASES } from "../constants/productSections";
+
 function WaitlistPage({
   videoSources,
   activeVideoIndex,
@@ -82,6 +84,70 @@ function WaitlistPage({
             </span>
           </button>
         ))}
+      </section>
+
+      <section className="product-card home-sections-card">
+        <div className="product-sections">
+          <section className="product-block block-efficiency">
+            <h2>
+              <span className="block-kicker">Outcomes</span>
+              What you gain with Zorvee
+            </h2>
+            <div className="efficiency-grid">
+              {OUTCOMES.map((metric) => (
+                <article key={metric.label} className="efficiency-card">
+                  <p className="efficiency-value">{metric.value}</p>
+                  <p className="efficiency-label">{metric.label}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="product-block block-capabilities">
+            <h2>
+              <span className="block-kicker">Capabilities</span>
+              Everything in one production layer
+            </h2>
+            <div className="capabilities-grid">
+              {CAPABILITIES.map((item) => (
+                <article key={item.title} className="capability-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="product-block block-use-cases">
+            <h2>
+              <span className="block-kicker">Use Cases</span>
+              Built for teams that scale content
+            </h2>
+            <div className="use-case-grid">
+              {USE_CASES.map((item) => (
+                <article key={item.title} className="use-case-card">
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className="product-block block-faq">
+            <h2>
+              <span className="block-kicker">FAQ</span>
+              Frequently asked questions
+            </h2>
+            <div className="faq-list">
+              {FAQS.map((item) => (
+                <details key={item.question} className="faq-item">
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        </div>
       </section>
     </main>
   );

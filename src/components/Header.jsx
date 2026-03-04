@@ -41,7 +41,7 @@ function Header({ activePage, onNavigate }) {
           type="button"
           className="brand-logo-button"
           onClick={() => handleNavigate(PAGES.WAITLIST)}
-          aria-label="Go to waitlist page"
+          aria-label="Go to home page"
         >
           <img src={logo} alt="zorvee" className="brand-logo" />
         </button>
@@ -62,10 +62,10 @@ function Header({ activePage, onNavigate }) {
         </button>
         <button
           type="button"
-          className={activePage === PAGES.EXAMPLES ? "active" : ""}
-          onClick={() => handleNavigate(PAGES.EXAMPLES)}
+          className={activePage === PAGES.WAITLIST ? "active" : ""}
+          onClick={() => handleNavigate(PAGES.WAITLIST)}
         >
-          See Examples
+          Home
         </button>
         <button
           type="button"
@@ -76,10 +76,10 @@ function Header({ activePage, onNavigate }) {
         </button>
         <button
           type="button"
-          className={activePage === PAGES.WAITLIST ? "active" : ""}
-          onClick={() => handleNavigate(PAGES.WAITLIST)}
+          className={activePage === PAGES.EXAMPLES ? "active" : ""}
+          onClick={() => handleNavigate(PAGES.EXAMPLES)}
         >
-          Join
+          See Examples
         </button>
       </nav>
       <div className="header-actions">
