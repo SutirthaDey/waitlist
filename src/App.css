@@ -5,11 +5,13 @@
 }
 
 :root {
-  --bg-deep: #0b1224;
-  --bg-mid: #1b253d;
+  --bg-deep: #f7faec;
+  --bg-mid: #eaf3cf;
   --shell: #eef5d3;
   --surface: #f8fbe9;
-  --tile: #040b1d;
+  --tile: #1f3125;
+  --content-max: 1120px;
+  --text-max: 860px;
   --text-main: #121a2a;
   --text-muted: #333b4c;
   --line: rgba(18, 26, 42, 0.1);
@@ -32,7 +34,7 @@ html {
 body {
   font-family: "Space Grotesk", "Manrope", "Segoe UI", sans-serif;
   background:
-    radial-gradient(circle at 10% 15%, #111b33 0%, transparent 44%),
+    radial-gradient(circle at 10% 15%, rgba(174, 205, 121, 0.35) 0%, transparent 44%),
     linear-gradient(180deg, var(--bg-deep), var(--bg-mid));
   color: var(--text-main);
   overflow-x: hidden;
@@ -70,26 +72,26 @@ input {
 
 .app-shell {
   min-height: 100vh;
-  padding: 24px;
-  display: grid;
-  place-items: center;
+  width: 100%;
+  padding: 0;
+  display: block;
 }
 
 .site-frame {
-  width: min(1080px, 100%);
-  min-height: calc(100vh - 48px);
-  border-radius: 28px;
+  width: 100%;
+  min-height: 100vh;
+  border-radius: 0;
   background: var(--shell);
-  box-shadow:
-    0 24px 80px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(230, 238, 200, 0.7);
+  box-shadow: none;
+  border: none;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
 
 .top-header {
+  width: min(var(--content-max), calc(100% - 48px));
+  margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -106,7 +108,7 @@ input {
   height: 56px;
   border: none;
   border-radius: 14px;
-  background: #000;
+  background: linear-gradient(180deg, #2f4f26 0%, #223a1f 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -183,6 +185,8 @@ input {
 .examples-page,
 .product-page {
   flex: 1;
+  width: min(var(--content-max), calc(100% - 48px));
+  margin: 0 auto;
   padding: 28px 34px 38px;
 }
 
@@ -193,7 +197,7 @@ input {
 }
 
 .hero-center {
-  max-width: 800px;
+  max-width: var(--text-max);
   margin: 0 auto;
   text-align: center;
 }
@@ -358,6 +362,9 @@ form button {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 22px;
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
 }
 
 .video-tile,
@@ -420,6 +427,9 @@ form button {
 
 .examples-card,
 .product-card {
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
   background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.9);
   border-radius: 22px;
@@ -940,6 +950,7 @@ form button {
 
 @media (max-width: 980px) {
   .top-header {
+    width: calc(100% - 36px);
     grid-template-columns: auto auto;
     padding: 18px 18px 14px;
   }
@@ -998,6 +1009,7 @@ form button {
   .landing-panel,
   .examples-page,
   .product-page {
+    width: calc(100% - 36px);
     padding: 18px 18px 26px;
   }
 
@@ -1051,12 +1063,14 @@ form button {
 
 @media (max-width: 760px) {
   .top-header {
+    width: calc(100% - 28px);
     padding: 14px 14px 10px;
   }
 
   .landing-panel,
   .examples-page,
   .product-page {
+    width: calc(100% - 28px);
     padding: 16px 14px 22px;
   }
 
@@ -1107,13 +1121,9 @@ form button {
 }
 
 @media (max-width: 620px) {
-  .app-shell {
-    padding: 8px;
-  }
-
   .site-frame {
-    min-height: calc(100vh - 16px);
-    border-radius: 16px;
+    min-height: 100vh;
+    border-radius: 0;
   }
 
   .brand-logo-button {
@@ -1163,12 +1173,14 @@ form button {
 
 @media (max-width: 420px) {
   .top-header {
+    width: calc(100% - 24px);
     padding: 12px 12px 8px;
   }
 
   .landing-panel,
   .examples-page,
   .product-page {
+    width: calc(100% - 24px);
     padding: 14px 12px 18px;
   }
 

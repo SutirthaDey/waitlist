@@ -12,11 +12,8 @@ function ProductPage({ onOpenDemo }) {
           </h1>
           <p className="product-lead">
             Zorvee helps teams build realistic, high-converting product videos from one
-            platform.
-            <br />
-            It replaces fragmented scripting, voice, localization, and editing workflows.
-            <br />
-            Your team ships more campaigns with less effort.
+            platform. It replaces fragmented scripting, voice, localization, and editing
+            workflows. Your team ships more campaigns with less effort.
           </p>
         </header>
 
