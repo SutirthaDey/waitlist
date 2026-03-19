@@ -1236,7 +1236,7 @@ body {
   background:
     radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.035) 0%, transparent 44%),
     #060607;
-  border: 2px solid rgba(210, 255, 77, 0.76);
+  border: none;
 }
 
 .top-header {
