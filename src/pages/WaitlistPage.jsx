@@ -14,76 +14,96 @@ function WaitlistPage({
     if (!videoSources.length) return "";
     return videoSources[(activeVideoIndex + index) % videoSources.length];
   });
+  const heroVideo = visibleVideos[0] ?? "";
 
   return (
     <main className="landing-panel">
-      <section className="hero-center">
-        <p className="waitlist-tag animated-program">Early Access Program</p>
-        <h1 className="hero-title">
-          <span className="title-accent">Zorvee</span>
-          <br />
-          <span className="title-accent">AI Powered</span> Content
-          <br />
-          <span className="title-accent">Generation</span> Engine For Your
-          <br />
-          Brand
-        </h1>
-        <p className="subtext">
-          Launch polished ad creatives in minutes with personas, voice, and
-          multilingual output tailored to your brand.
-        </p>
-        <div className="hero-cta-row">
-          <button type="button" className="cta-primary" onClick={onNavigateProduct}>
-            How It Works
-          </button>
+      <section className="hero-stage">
+        <div className="hero-center">
+          <p className="waitlist-tag animated-program">Early Access Program</p>
+          <h1 className="hero-title">
+            <span className="title-accent">Zorvee</span>
+            <br />
+            <span className="title-accent">AI Powered</span> Content
+            <br />
+            <span className="title-accent">Generation</span> Engine
+          </h1>
+          <p className="subtext">
+            Launch polished ad creatives in minutes with personas, voice, and
+            multilingual output tailored to your brand.
+          </p>
+          <div className="hero-cta-row">
+            <button type="button" className="cta-primary" onClick={onNavigateProduct}>
+              How It Works
+            </button>
+          </div>
+          <p className="waitlist-note">
+            Review the product flow, then join the waitlist for priority access.
+          </p>
+          <div className="form-box">
+            {success ? (
+              <h3 className="success">You are on the waitlist.</h3>
+            ) : (
+              <form onSubmit={onSubmit}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full name"
+                  required
+                  onChange={onInputChange}
+                />
+
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  onChange={onInputChange}
+                />
+
+                <button disabled={loading}>
+                  {loading ? "Submitting..." : "Get In Touch"}
+                </button>
+              </form>
+            )}
+          </div>
         </div>
-        <p className="waitlist-note">
-          Review the product flow, then join the waitlist for priority access.
-        </p>
-        <div className="form-box">
-          {success ? (
-            <h3 className="success">You are on the waitlist.</h3>
-          ) : (
-            <form onSubmit={onSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Full name"
-                required
-                onChange={onInputChange}
-              />
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                onChange={onInputChange}
-              />
+        <div className="hero-orbit" aria-hidden="true">
+          <article className="float-card metric-card metric-left">
+            <p className="float-value">{OUTCOMES[0].value}</p>
+            <p className="float-label">{OUTCOMES[0].label}</p>
+          </article>
 
-              <button disabled={loading}>
-                {loading ? "Submitting..." : "Get In Touch"}
-              </button>
-            </form>
-          )}
-        </div>
-      </section>
+          <article className="float-card media-card media-right">
+            {visibleVideos[1] ? (
+              <video src={visibleVideos[1]} autoPlay loop muted playsInline />
+            ) : null}
+          </article>
 
-      <section className="video-row" aria-label="Featured videos">
-        {visibleVideos.map((videoSrc, index) => (
+          <article className="float-card metric-card metric-right">
+            <p className="float-value">{OUTCOMES[1].value}</p>
+            <p className="float-label">{OUTCOMES[1].label}</p>
+          </article>
+
+          <article className="float-card media-card media-left">
+            {visibleVideos[2] ? (
+              <video src={visibleVideos[2]} autoPlay loop muted playsInline />
+            ) : null}
+          </article>
+
           <button
             type="button"
-            key={`${videoSrc}-${index}`}
-            className="video-tile"
-            onClick={() => onOpenVideo(videoSrc)}
-            disabled={!videoSrc}
+            className="phone-stage"
+            onClick={() => heroVideo && onOpenVideo(heroVideo)}
+            disabled={!heroVideo}
           >
-            {videoSrc ? <video src={videoSrc} autoPlay loop muted playsInline /> : null}
+            {heroVideo ? <video src={heroVideo} autoPlay loop muted playsInline /> : null}
             <span className="video-overlay-label" aria-hidden="true">
               ▶
             </span>
           </button>
-        ))}
+        </div>
       </section>
 
       <section className="product-card home-sections-card">
