@@ -109,10 +109,7 @@ function WaitlistPage({
       <section className="product-card home-sections-card">
         <div className="product-sections">
           <section className="product-block block-efficiency">
-            <h2>
-              <span className="block-kicker">Outcomes</span>
-              What you gain with Zorvee
-            </h2>
+            <h2>What you gain with Zorvee</h2>
             <div className="efficiency-grid">
               {OUTCOMES.map((metric) => (
                 <article key={metric.label} className="efficiency-card">
@@ -124,10 +121,7 @@ function WaitlistPage({
           </section>
 
           <section className="product-block block-capabilities">
-            <h2>
-              <span className="block-kicker">Capabilities</span>
-              Everything in one production layer
-            </h2>
+            <h2>Everything in one production layer</h2>
             <div className="capabilities-grid">
               {CAPABILITIES.map((item) => (
                 <article key={item.title} className="capability-card">
@@ -139,10 +133,7 @@ function WaitlistPage({
           </section>
 
           <section className="product-block block-use-cases">
-            <h2>
-              <span className="block-kicker">Use Cases</span>
-              Built for teams that scale content
-            </h2>
+            <h2>Built for teams that scale content</h2>
             <div className="use-case-grid">
               {USE_CASES.map((item) => (
                 <article key={item.title} className="use-case-card">
@@ -154,10 +145,7 @@ function WaitlistPage({
           </section>
 
           <section className="product-block block-faq">
-            <h2>
-              <span className="block-kicker">FAQ</span>
-              Frequently asked questions
-            </h2>
+            <h2>Frequently asked questions</h2>
             <div className="faq-list">
               {FAQS.map((item) => (
                 <details key={item.question} className="faq-item">
@@ -169,6 +157,7 @@ function WaitlistPage({
           </section>
         </div>
       </section>
+
     </main>
   );
 }
