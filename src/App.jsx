@@ -115,25 +115,43 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
+    setSuccess(false);
 
-    const { error } = await supabase.from("waitlist").insert([formData]);
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim().toLowerCase(),
+    };
 
-    if (error) {
+    try {
+      const { error } = await supabase.from("waitlist").insert([payload]);
+
+      if (error) {
+        const isDuplicateEmail =
+          error.code === "23505" ||
+          /duplicate|already exists|unique/i.test(error.message ?? "");
+
+        setToast({
+          message: isDuplicateEmail
+            ? "This email is already registered. We will notify you as soon as access opens."
+            : "Could not submit your request right now. Please try again in a moment.",
+          type: "error",
+        });
+      } else {
+        setToast({
+          message:
+            "You have been added to the waitlist. We will contact you with next steps.",
+          type: "success",
+        });
+        setSuccess(true);
+      }
+    } catch {
       setToast({
-        message:
-          "This email is already registered. We will notify you as soon as access opens.",
+        message: "Something went wrong while submitting. Please try again.",
         type: "error",
       });
-    } else {
-      setToast({
-        message:
-          "You have been added to the waitlist. We will contact you with next steps.",
-        type: "success",
-      });
-      setSuccess(true);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   const handleOpenVideo = (src) => {
