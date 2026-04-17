@@ -648,6 +648,60 @@ form button {
   justify-content: center;
 }
 
+.examples-carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 8px 0 14px;
+}
+
+.examples-arrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(141, 211, 48, 0.65);
+  background: #8dd330;
+  color: #0b0f12;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.examples-arrow:hover:not(:disabled) {
+  background: #9fe03c;
+  border-color: rgba(159, 224, 60, 0.85);
+  transform: translateY(-1px);
+}
+
+.examples-chevron {
+  width: 10px;
+  height: 10px;
+  border-top: 2.5px solid #0b0f12;
+  border-right: 2.5px solid #0b0f12;
+}
+
+.examples-chevron-left {
+  transform: rotate(-135deg);
+  margin-left: 3px;
+}
+
+.examples-chevron-right {
+  transform: rotate(45deg);
+  margin-right: 3px;
+}
+
+.examples-arrow:disabled {
+  background: #5e7a34;
+  border-color: rgba(141, 211, 48, 0.3);
+  cursor: not-allowed;
+}
+
+.examples-arrow:disabled .examples-chevron {
+  border-top-color: rgba(11, 15, 18, 0.55);
+  border-right-color: rgba(11, 15, 18, 0.55);
+}
+
 .example-video-card {
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.95);

@@ -1,11 +1,17 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 function ExamplesPage({ categories, onOpenVideo }) {
   const [activeCategoryId, setActiveCategoryId] = useState(categories[0]?.id ?? "");
+  const [visibleStart, setVisibleStart] = useState(0);
+  const MAX_VISIBLE_VIDEOS = 4;
 
   const activeCategory = useMemo(() => {
     return categories.find((category) => category.id === activeCategoryId) ?? categories[0];
   }, [activeCategoryId, categories]);
+
+  useEffect(() => {
+    setVisibleStart(0);
+  }, [activeCategoryId]);
 
   if (!categories.length || !activeCategory) {
     return (
@@ -45,8 +51,37 @@ function ExamplesPage({ categories, onOpenVideo }) {
 
         <p className="examples-category-description">{activeCategory.description}</p>
 
+        {activeCategory.videos.length > MAX_VISIBLE_VIDEOS ? (
+          <div className="examples-carousel-controls" aria-label="Video navigation">
+            <button
+              type="button"
+              className="examples-arrow"
+              onClick={() => setVisibleStart((current) => Math.max(current - 1, 0))}
+              disabled={visibleStart === 0}
+              aria-label="Show previous videos"
+            >
+              <span className="examples-chevron examples-chevron-left" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              className="examples-arrow"
+              onClick={() =>
+                setVisibleStart((current) =>
+                  Math.min(current + 1, Math.max(activeCategory.videos.length - MAX_VISIBLE_VIDEOS, 0)),
+                )
+              }
+              disabled={visibleStart + MAX_VISIBLE_VIDEOS >= activeCategory.videos.length}
+              aria-label="Show next videos"
+            >
+              <span className="examples-chevron examples-chevron-right" aria-hidden="true" />
+            </button>
+          </div>
+        ) : null}
+
         <div className="examples-grid">
-          {activeCategory.videos.map((video) => (
+          {activeCategory.videos
+            .slice(visibleStart, visibleStart + MAX_VISIBLE_VIDEOS)
+            .map((video) => (
             <article key={video.id} className="example-video-card">
               <button
                 type="button"
@@ -71,7 +106,7 @@ function ExamplesPage({ categories, onOpenVideo }) {
                 <p>{video.summary}</p>
               </div>
             </article>
-          ))}
+            ))}
         </div>
       </section>
     </main>
