@@ -20,29 +20,29 @@ function WaitlistPage({
     <main className="landing-panel">
       <section className="hero-stage">
         <div className="hero-center">
-          <p className="waitlist-tag animated-program">Early Access Program</p>
+          <p className="waitlist-tag animated-program">Done-For-You Video Service</p>
           <h1 className="hero-title">
             <span className="title-accent">Zorvee</span>
             <br />
-            <span className="title-accent">AI Powered</span> Content
+            <span className="title-accent">UGC-Style Videos</span>
             <br />
-            <span className="title-accent">Generation</span> Engine
+            <span className="title-accent">Made for</span> Your Brand
           </h1>
           <p className="subtext">
-            Launch polished ad creatives in minutes with personas, voice, and
-            multilingual output tailored to your brand.
+            We create custom videos using our in-house AI and deliver ready-to-post
+            Facebook/Instagram Reels and YouTube Shorts. No tech setup needed from your side.
           </p>
           <div className="hero-cta-row">
             <button type="button" className="cta-primary" onClick={onNavigateProduct}>
-              How It Works
+              See Our Process
             </button>
           </div>
           <p className="waitlist-note">
-            Review the product flow, then join the waitlist for priority access.
+            Share your brand once and we handle scripting, creation, and delivery.
           </p>
           <div className="form-box">
             {success ? (
-              <h3 className="success">You are on the waitlist.</h3>
+              <h3 className="success">Thanks. We will reach out to plan your free sample video.</h3>
             ) : (
               <form onSubmit={onSubmit}>
                 <input
@@ -62,7 +62,7 @@ function WaitlistPage({
                 />
 
                 <button disabled={loading}>
-                  {loading ? "Submitting..." : "Get In Touch"}
+                  {loading ? "Submitting..." : "Request My Free Video"}
                 </button>
               </form>
             )}
@@ -109,7 +109,7 @@ function WaitlistPage({
       <section className="product-card home-sections-card">
         <div className="product-sections">
           <section className="product-block block-efficiency">
-            <h2>What you gain with Zorvee</h2>
+            <h2>What your team gets with Zorvee</h2>
             <div className="efficiency-grid">
               {OUTCOMES.map((metric) => (
                 <article key={metric.label} className="efficiency-card">
@@ -121,7 +121,7 @@ function WaitlistPage({
           </section>
 
           <section className="product-block block-capabilities">
-            <h2>Everything in one production layer</h2>
+            <h2>What we handle for you</h2>
             <div className="capabilities-grid">
               {CAPABILITIES.map((item) => (
                 <article key={item.title} className="capability-card">
@@ -133,7 +133,7 @@ function WaitlistPage({
           </section>
 
           <section className="product-block block-use-cases">
-            <h2>Built for teams that scale content</h2>
+            <h2>Built for brands that need content without the hassle</h2>
             <div className="use-case-grid">
               {USE_CASES.map((item) => (
                 <article key={item.title} className="use-case-card">

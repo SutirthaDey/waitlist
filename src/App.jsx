@@ -14,7 +14,7 @@ import { VIDEO_SOURCES } from "./constants/videos";
 import ExamplesPage from "./pages/ExamplesPage";
 import ProductPage from "./pages/ProductPage";
 import WaitlistPage from "./pages/WaitlistPage";
-import { supabase } from "./supabase";
+import { hasSupabaseConfig, supabase } from "./supabase";
 import { getRouteFromPath } from "./utils/routing";
 
 function App() {
@@ -117,6 +117,16 @@ function App() {
     setLoading(true);
     setSuccess(false);
 
+    if (!hasSupabaseConfig || !supabase) {
+      setToast({
+        message:
+          "Form is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY to your environment.",
+        type: "error",
+      });
+      setLoading(false);
+      return;
+    }
+
     const payload = {
       name: formData.name.trim(),
       email: formData.email.trim().toLowerCase(),
@@ -126,27 +136,41 @@ function App() {
       const { error } = await supabase.from("waitlist").insert([payload]);
 
       if (error) {
+        const errorText = `${error.message ?? ""} ${error.details ?? ""}`.toLowerCase();
         const isDuplicateEmail =
           error.code === "23505" ||
           /duplicate|already exists|unique/i.test(error.message ?? "");
+        const isPermissionError =
+          error.code === "42501" || /row-level security|permission denied/.test(errorText);
+        const isMissingTable =
+          error.code === "42P01" || /relation .* does not exist|table .* does not exist/.test(errorText);
+        const isConnectionError = /fetch failed|failed to fetch|getaddrinfo|network/i.test(
+          errorText,
+        );
 
         setToast({
           message: isDuplicateEmail
-            ? "This email is already registered. We will notify you as soon as access opens."
+            ? "This email is already registered. We will reach out to discuss your free sample video."
+            : isPermissionError
+              ? "Supabase policy is blocking inserts. Enable an INSERT policy for anon users on the waitlist table."
+              : isMissingTable
+                ? "Supabase table 'waitlist' was not found. Create it in the public schema."
+                : isConnectionError
+                  ? "Could not reach Supabase. Check VITE_SUPABASE_URL and internet/DNS access."
             : "Could not submit your request right now. Please try again in a moment.",
           type: "error",
         });
       } else {
         setToast({
-          message:
-            "You have been added to the waitlist. We will contact you with next steps.",
+          message: "Request received. We will contact you to plan your free sample video.",
           type: "success",
         });
         setSuccess(true);
       }
     } catch {
       setToast({
-        message: "Something went wrong while submitting. Please try again.",
+        message:
+          "Unexpected error while submitting. Check browser console and Supabase configuration.",
         type: "error",
       });
     } finally {

@@ -7,13 +7,13 @@ const CATEGORY_LABELS = {
 
 const CATEGORY_DESCRIPTIONS = {
   fragrance:
-    "High-aesthetic fragrance creatives designed for premium storytelling and social conversion.",
+    "Done-for-you fragrance videos designed to feel premium while staying creator-authentic.",
   beauty:
-    "Benefit-led beauty videos that combine education, trust signals, and clear purchase intent.",
+    "Beauty-focused UGC-style videos built around benefits, trust, and conversion-friendly hooks.",
   clothing:
-    "Style-forward apparel campaigns tailored for launches, seasonal drops, and paid social.",
+    "Creator-style apparel videos tailored for launches, drops, and high-scroll social feeds.",
   jewellery:
-    "Luxury-focused product showcases crafted for high-intent audiences and gifting moments.",
+    "Jewellery videos balancing premium feel with relatable storytelling for high-intent shoppers.",
 };
 
 const CATEGORY_VIDEO_FILES = {
@@ -40,21 +40,21 @@ export const EXAMPLE_VIDEO_CATEGORIES = CATEGORY_ORDER.map((categoryId) => {
   };
   const summaryByCategory = {
     fragrance: [
-      "Cinematic brand-forward creative highlighting notes, mood, and wear occasion.",
-      "Performance-ready short focused on premium positioning and purchase intent.",
+      "Creator-style concept highlighting scent notes, mood, and daily wear context.",
+      "Short-form video crafted for premium positioning and faster purchase intent.",
     ],
     beauty: [
-      "Problem-solution narrative focused on ingredients, results, and routine fit.",
-      "Trust-building product story designed for high-retention short-form channels.",
-      "Routine-first concept highlighting texture, application, and visible finish.",
+      "Problem-solution storytelling focused on ingredients, outcomes, and routine fit.",
+      "Trust-first product narrative built for high-retention Reels and Shorts viewing.",
+      "Routine-led creative highlighting texture, application, and visible after-use finish.",
     ],
     clothing: [
-      "Fast-paced lookbook format featuring fit, fabric movement, and styling context.",
-      "Street-style creative emphasizing layering combinations and versatile wear.",
+      "Fast-paced lookbook style showing fit, movement, and complete outfit context.",
+      "Street-style storytelling emphasizing layering combinations and repeat-wear versatility.",
     ],
     jewellery: [
-      "Elegant showcase emphasizing craftsmanship, finish quality, and gifting appeal.",
-      "Ceremony-led storytelling focused on detailing, sparkle, and heirloom value.",
+      "Elegant product showcase emphasizing craftsmanship, finish quality, and gifting value.",
+      "Occasion-led storytelling focused on details, sparkle, and heirloom-style appeal.",
     ],
   };
 
@@ -63,7 +63,7 @@ export const EXAMPLE_VIDEO_CATEGORIES = CATEGORY_ORDER.map((categoryId) => {
     label: categoryLabel,
     description:
       CATEGORY_DESCRIPTIONS[categoryId] ??
-      "Category based examples from your public videos.",
+      "Category-based sample videos tailored for social-first brand content.",
     videos: files.map((fileName, index) => ({
       id: `${categoryId}-${index + 1}`,
       title:
@@ -71,7 +71,7 @@ export const EXAMPLE_VIDEO_CATEGORIES = CATEGORY_ORDER.map((categoryId) => {
         `${categoryLabel} Campaign ${index + 1}`,
       summary:
         summaryByCategory[categoryId]?.[index] ??
-        `Performance-oriented ${categoryLabel.toLowerCase()} video concept for social and paid channels.`,
+        `Done-for-you ${categoryLabel.toLowerCase()} video concept for social and paid channels.`,
       src: `/${categoryId}/${fileName}`,
     })),
   };

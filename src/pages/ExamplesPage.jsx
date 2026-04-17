@@ -12,8 +12,8 @@ function ExamplesPage({ categories, onOpenVideo }) {
       <main className="examples-page">
         <section className="examples-card">
           <p className="examples-tag">See Examples</p>
-          <h1>Video Library</h1>
-          <p>Examples are being prepared. Please check back shortly.</p>
+          <h1>Sample Video Library</h1>
+          <p>Sample videos are being prepared. Please check back shortly.</p>
         </section>
       </main>
     );
@@ -24,7 +24,7 @@ function ExamplesPage({ categories, onOpenVideo }) {
       <section className="examples-card">
         <p className="examples-tag">See Examples</p>
         <h1>
-          <span className="title-accent">Content Library</span> By Category
+          <span className="title-accent">Sample Videos</span> By Category
         </h1>
 
         <div className="examples-categories" role="tablist" aria-label="Video categories">

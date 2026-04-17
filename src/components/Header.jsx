@@ -72,7 +72,7 @@ function Header({ activePage, onNavigate }) {
           className={activePage === PAGES.PRODUCT ? "active" : ""}
           onClick={() => handleNavigate(PAGES.PRODUCT)}
         >
-          Product
+          How It Works
         </button>
         <button
           type="button"

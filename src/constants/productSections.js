@@ -1,65 +1,71 @@
 export const OUTCOMES = [
-  { value: "75%", label: "Less manual production effort" },
-  { value: "4x", label: "Faster campaign turnaround" },
-  { value: "35+", label: "Languages supported for localization" },
+  { value: "₹30k+", label: "Saved vs typical per-video creator pricing" },
+  { value: "72 hrs", label: "Typical first video turnaround" },
+  { value: "0 setup", label: "No tech work required from your team" },
 ];
 
 export const WORKFLOW_STEPS = [
   {
-    title: "Add your product context",
-    description: "Share product details, audience, and campaign objective.",
+    title: "Share your brand brief",
+    description: "Send product details, audience, and your campaign goal.",
   },
   {
-    title: "Generate script + presenter",
-    description: "Get brand-fit messaging with persona and voice setup in one flow.",
+    title: "We produce your creator-style concept",
+    description:
+      "Our in-house AI team builds the script, hook, and on-brand creator-style delivery.",
   },
   {
-    title: "Create variants at scale",
-    description: "Produce multiple language and format versions without rework.",
+    title: "Receive ready-to-post videos",
+    description:
+      "Get finished Facebook/Instagram Reels and YouTube Shorts ready to publish.",
   },
 ];
 
 export const CAPABILITIES = [
   {
-    title: "Script Engine",
-    description: "Generate ad-ready scripts aligned to offer, audience, and channel.",
-  },
-  {
-    title: "Persona + Voice",
-    description: "Use realistic presenters and voice styles that match your brand tone.",
-  },
-  {
-    title: "Localization",
-    description: "Create multilingual video variants quickly for every target market.",
-  },
-  {
-    title: "Creative Iteration",
-    description: "Test multiple hooks and messaging angles without restarting production.",
-  },
-  {
-    title: "Brand Consistency",
+    title: "Creative Briefing",
     description:
-      "Keep visual style, message quality, and delivery consistent across campaigns.",
+      "We translate your product details into a clear content angle tailored to your audience.",
   },
   {
-    title: "Export Ready Output",
+    title: "Script + Hook Writing",
     description:
-      "Get social and ad-ready videos faster with fewer back-and-forth edits.",
+      "Our team writes creator-style scripts with strong hooks built for short-form retention.",
+  },
+  {
+    title: "AI Creator Production",
+    description:
+      "We create authentic-looking UGC-style videos using our in-house AI production workflow.",
+  },
+  {
+    title: "Brand Customization",
+    description:
+      "Every output is tailored to your product claims, tone, and target customer profile.",
+  },
+  {
+    title: "Multi-Platform Delivery",
+    description:
+      "We deliver finished videos sized and structured for Reels, Shorts, and paid social use.",
+  },
+  {
+    title: "Revision Support",
+    description:
+      "Need changes? We handle edits fast so you can keep publishing without production delays.",
   },
 ];
 
 export const USE_CASES = [
   {
     title: "D2C Brands",
-    text: "Launch product ads faster and maintain consistent output during weekly campaign cycles.",
+    text: "Launch product-focused short videos consistently without hiring creators for every campaign.",
   },
   {
-    title: "Agencies",
-    text: "Deliver more creative variants per client without increasing team workload.",
+    title: "Founders & Lean Teams",
+    text: "Stay active on social with done-for-you video output even when your internal team is small.",
   },
   {
-    title: "Growth Teams",
-    text: "Test, learn, and scale winning creatives quickly across paid and organic channels.",
+    title: "Performance Marketers",
+    text: "Get fresh video creatives quickly to test hooks, offers, and messaging across paid channels.",
   },
 ];
 
@@ -67,26 +73,26 @@ export const FAQS = [
   {
     question: "Who is Zorvee built for?",
     answer:
-      "Zorvee is designed for D2C brands, performance marketers, and content teams that need frequent, on-brand videos without increasing headcount.",
+      "Zorvee is built for brands, founders, and marketers who need regular short-form video content without managing creators or production tech.",
   },
   {
-    question: "How does Zorvee reduce time and effort?",
+    question: "Do we need to use any tools or learn new software?",
     answer:
-      "By automating persona setup, script generation, voice selection, and localization in one platform, teams can reduce manual production effort by up to 75%.",
+      "No. You share your brief and we handle the full production process. You receive ready-to-post videos without technical setup.",
   },
   {
-    question: "Can we keep brand voice and visual consistency?",
+    question: "How fast can we get a video?",
     answer:
-      "Yes. You can standardize tone, presenter style, format rules, and language output so every campaign follows your brand system.",
+      "Most first videos are delivered in around 72 hours, not weeks, so your team can publish faster and stay consistent.",
   },
   {
-    question: "Do we need technical skills to use the platform?",
+    question: "Can you match our brand style and message?",
     answer:
-      "No advanced technical setup is required. Marketing and creative teams can operate the workflow through a guided interface.",
+      "Yes. We tailor script, tone, visual treatment, and messaging to your product so the content feels authentic to your brand.",
   },
   {
-    question: "Is this useful for multilingual campaigns?",
+    question: "Is there a free sample option?",
     answer:
-      "Yes. Zorvee helps generate localized scripts and voice outputs quickly, reducing repetitive production work for each region.",
+      "Yes. We can create one sample video for free so you can see the quality before committing.",
   },
 ];
